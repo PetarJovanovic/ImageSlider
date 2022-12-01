@@ -29,6 +29,9 @@ images.forEach(el => {
 const bodyPreviewAll = document.querySelectorAll('.body__preview img');
 bodyPreviewAll.forEach(image => {
   image.classList.add('body__smallImg');
+  if (currentBodyImg.src === image.src) {
+    image.classList.add('body__smallImg');
+  }
 });
 console.log(bodyPreviewAll);
 
