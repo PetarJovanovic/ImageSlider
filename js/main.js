@@ -2,6 +2,8 @@ const images = [
   'https://picsum.photos/id/237/600/400',
   'https://picsum.photos/id/76/600/400',
   'https://picsum.photos/id/83/600/400',
+  'https://picsum.photos/id/368/600/400',
+  'https://picsum.photos/id/292/600/400',
 ];
 
 const bodyImg = document.querySelector('.body__img');
@@ -21,19 +23,15 @@ images.forEach(el => {
   bodyPreviewImg.src = el;
   bodyPreview.appendChild(bodyPreviewImg);
 
+  if (currentBodyImg.src === el) {
+    bodyPreviewImg.className = 'body__smallImgActive';
+  }
+
   bodyPreviewImg.addEventListener('click', () => {
     currentBodyImg.src = el;
+    addClass();
   });
 });
-
-const bodyPreviewAll = document.querySelectorAll('.body__preview img');
-bodyPreviewAll.forEach(image => {
-  image.classList.add('body__smallImg');
-  if (currentBodyImg.src === image.src) {
-    image.classList.add('body__smallImg');
-  }
-});
-console.log(bodyPreviewAll);
 
 arrowLeft.addEventListener('click', () => {
   const currentPosition = findImgPosition();
@@ -42,6 +40,7 @@ arrowLeft.addEventListener('click', () => {
   } else {
     currentBodyImg.src = images[images.length - 1];
   }
+  addClass();
 });
 
 arrowRight.addEventListener('click', () => {
@@ -51,4 +50,19 @@ arrowRight.addEventListener('click', () => {
   } else {
     currentBodyImg.src = images[0];
   }
+  addClass();
 });
+
+function addClass() {
+  const bodyPreviewAll = document.querySelectorAll('.body__preview img');
+
+  bodyPreviewAll.forEach(image => {
+    image.className = '';
+  });
+
+  bodyPreviewAll.forEach(image => {
+    if (currentBodyImg.src === image.src) {
+      image.className = 'body__smallImgActive';
+    }
+  });
+}
