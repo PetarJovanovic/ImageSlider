@@ -11,6 +11,7 @@ body {
   gap: 20px;
   padding: 20px;
   border: 1px solid #000;
+  background: white;
 
   &__preview {
     display: flex;
@@ -19,8 +20,9 @@ body {
   }
 
   &__preview img {
-    width: auto;
-    height: auto;
+    width: 75px;
+    height: 75px;
+    object-fit: cover;
     border-radius: 5px;
     box-shadow: 0px 0px 5px black;
     transition: all 0.5s ease;
@@ -28,17 +30,29 @@ body {
 
   &__preview img:hover {
     transform: scale(1.05);
+    cursor: pointer;
   }
 
-  &__img {
+  &__section {
     display: flex;
-    width: 500px;
-    height: 500px;
-    overflow: hidden;
+    align-items: center;
+  }
+
+  &__arrow {
+    width: 75px;
+    height: 75px;
+    cursor: pointer;
+
+    &--left {
+      transform: rotate(180deg);
+    }
   }
 
   &__img img {
-    border-radius: 5px;
+    width: 600px;
+    height: 400px;
     object-fit: cover;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px black;
   }
 }
