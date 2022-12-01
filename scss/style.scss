@@ -1,0 +1,44 @@
+@forward 'globals';
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.body {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  border: 1px solid #000;
+
+  &__preview {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__preview img {
+    width: auto;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px black;
+    transition: all 0.5s ease;
+  }
+
+  &__preview img:hover {
+    transform: scale(1.05);
+  }
+
+  &__img {
+    display: flex;
+    width: 500px;
+    height: 500px;
+    overflow: hidden;
+  }
+
+  &__img img {
+    border-radius: 5px;
+    object-fit: cover;
+  }
+}
